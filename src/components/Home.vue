@@ -7,7 +7,7 @@
 <script>
 export default {
 name: "Home",
-  methods:{
+  methods:{//方法
   //点击退出--登录页面
     logout(){
       //1.清除页面的token值（因为路由导航的存在，你没有token值就无法访问其他页面，必须先跳转到登录页面）
