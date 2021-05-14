@@ -7,6 +7,8 @@ import './assets/css/font_2533627_6b57t1hwb0g/iconfont.css'
 //引入阿里图标
 import './assets/css/user/iconfont.css'
 import  './assets/css/password/iconfont.css'
+//树状表格插件引入
+import TreeTable from 'vue-table-with-tree-grid'
 
 import axios from 'axios'
 //配置axios请求
@@ -22,6 +24,8 @@ axios.interceptors.request.use(config => {
 Vue.prototype.$http=axios
 
 Vue.config.productionTip = false
+//将树状表格注册为全局
+Vue.component('tree-table',TreeTable)
 
 new Vue({
   router,
