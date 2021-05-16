@@ -188,7 +188,8 @@ export default {
     },
     // 获取参数的列表数据
     async getParamsData() {
-      // 证明选中的不是三级分类：不是三级分类就清空数组、动态参数的列表数据、静态参数的列表数据
+      // 证明选中的不是三级分类：不是三级分类就清空数组、动态参数的列表数据、静态参数的列表数据q
+
       if (this.selectedCateKeys.length !== 3) {
         //清空被选择项的id数组
         this.selectedCateKeys = []
