@@ -29,11 +29,16 @@ import {
   MessageBox,
   Tag,
   Tree,
-  Cascader
-
+  Cascader,
+  Alert,
+  Tabs,
+  TabPane
 } from 'element-ui'
 
 Vue.use(Table)
+Vue.use(Tabs)
+Vue.use(TabPane)
+Vue.use(Alert)
 Vue.use(Cascader)
 Vue.use(Tree)
 Vue.use(Tag)
