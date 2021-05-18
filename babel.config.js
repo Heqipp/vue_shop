@@ -1,3 +1,9 @@
+// 项目在发布时需要用到的babel插件数组
+const proPlugins = [];
+// 如果当前是生产环境，则使用去掉console的插件
+if (process.env.NODE_ENV === 'production') {
+  proPlugins.push('transform-remove-console');
+}
 module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset'
@@ -10,5 +16,9 @@ module.exports = {
         styleLibraryName: 'theme-chalk'
       }
     ],
+    //发布产品时的插件数组
+    ...proPlugins,
+    //路由懒加载
+    '@babel/plugin-syntax-dynamic-import'
   ]
 }

@@ -12,7 +12,7 @@
 
       <el-row>
         <el-col>
-          <el-tree :data="my" :props="defaultProps" @node-click="handleNodeClick" default-expand-all></el-tree>
+          <el-tree :data="my"  @node-click="handleNodeClick" default-expand-all></el-tree>
         </el-col>
       </el-row>
     </el-card>
