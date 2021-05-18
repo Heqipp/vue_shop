@@ -5,4 +5,21 @@ html,body,#app{
     padding:0;
     min-width: 1366px;
 }
-
+/*富文本编辑器的高度*/
+.ql-editor{
+    min-height: 300px;
+}
+/*表格间距和阴影*/
+.el-card{
+    margin-top: 15px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+/*分页的间距和居中*/
+.el-pagination{
+    margin-top: 15px;
+    text-align: center;
+}
+/*面包屑导航*/
+.el-breadcrumb{
+    font-size: 15px !important;
+}

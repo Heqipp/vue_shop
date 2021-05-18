@@ -58,7 +58,7 @@
         @current-change="handleCurrentChange"
         :current-page="queryInfo.pagenum"
         :page-sizes="[1, 2, 5, 10]"
-        :page-size="queryInfo.pagesize"
+        :page-size="queryInfo.pagesize" background
         layout="total, sizes, prev, pager, next, jumper"
         :total="total">
       </el-pagination>
@@ -488,5 +488,8 @@ export default {
 .el-table {
   margin-top: 15px;
   font-size: 12px;
+}
+.el-col-4{
+  padding-left: 0 !important;
 }
 </style>

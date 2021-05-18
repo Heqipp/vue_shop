@@ -25,7 +25,7 @@
         <!--          登录按钮-->
         <el-form-item class="btns">
           <el-button type="info" @click="resetLoginForm">重置</el-button>
-          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="primary" @click="login" @keyup.enter="login">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -73,24 +73,41 @@ export default {
       }
     }
   },
+//页面渲染完毕后，获取键盘事件
+  mounted () {
+    window.addEventListener('keydown', this.keyDown)
+  },
+
   methods: {
+    //绑定键盘的监听事件
+    keyDown (e) {
+      //如果是按回车则执行登录方法
+      if (e.keyCode == 13) {
+        this.login()
+      }
+    },
+    //销毁键盘的登录事件
+    dstroyed () {
+      window.removeEventListener('keydown', this.keyDown, false)
+    },
+
     //登录验证事件
     login () {
       //1.预验证：.validate是element的内置函数
-      this.$refs.loginFormRef.validate( async (valid) => {
+      this.$refs.loginFormRef.validate(async (valid) => {
         //2.根据预验证的结果：valid的布尔值判断是否进行下一步的数据提交
-        if(!valid) return
+        if (!valid) return
         //es6的对象的解构赋值： const { data:res }={data：‘xxx’}
         //3.axios进行提交
-        const { data:res }= await this.$http.post('login',this.loginForm)
+        const { data: res } = await this.$http.post('login', this.loginForm)
         //console.log(result)
         //4.根据返回的状态码来判断验证成功与否
-        if(res.meta.status !==200) return this.$message.error('登录失败')//.$message.error是Element里的提示弹框函数
+        if (res.meta.status !== 200) return this.$message.error('登录失败')//.$message.error是Element里的提示弹框函数
         this.$message.success('登陆成功')
         //账号admin密码123456
-        console.log(res)
+        //console.log(res)
         //5.储存token值
-        window.sessionStorage.setItem("token",res.data.token)
+        window.sessionStorage.setItem('token', res.data.token)
         //6.登录并储存完毕后跳转到后台页面
         this.$router.push('/home')
       })

@@ -3,7 +3,7 @@
     <!--    头部区域-->
     <el-header>
       <div>
-        <img src="../assets/img/heima.png" alt=""/>
+        <img src="../assets/img/logo.png"  alt="">
         <span>电商后台管理系统</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button>
@@ -13,7 +13,10 @@
       <!--      侧边栏-->
       <el-aside :width="isCollapse ? '64px' :'200px' ">
         <!--侧边栏的折叠按钮-->
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
+        <div class="toggle-button" @click="toggleCollapse">
+          <i v-if="foldIcon" class="el-icon-d-arrow-left"></i>
+          <i v-else class="el-icon-d-arrow-right"></i>
+        </div>
         <!--菜单div盒子-->
         <el-menu
           background-color="#333744"
@@ -77,7 +80,9 @@ export default {
       //控制侧边栏的折叠：开关
       isCollapse: false,
       //激活状态的index
-      activePath:''
+      activePath:'',
+      //折叠按钮显示
+      foldIcon:true
     }
   },
   //生命周期函数，渲染页面前执行数据请求函数
@@ -103,11 +108,12 @@ export default {
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       //如果请求成功则储存数据
       this.menulist = res.data
-      console.log(res)
+      //console.log(res)
     },
     //侧边栏的折叠点击事件
     toggleCollapse () {
       this.isCollapse = !this.isCollapse
+      this.foldIcon=!this.foldIcon
     },
     //保存标题的index值到浏览器：维持标题的高亮状态
     saveNavState(activePath){
@@ -170,5 +176,10 @@ export default {
   line-height: 30px;
   letter-spacing: 0.3em;
   cursor: pointer;
+}
+img{
+  margin-left: 15px;
+  width: 45px;
+  height: 45px;
 }
 </style>

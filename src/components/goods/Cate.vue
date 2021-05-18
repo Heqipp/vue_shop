@@ -1,3 +1,4 @@
+<!--商品分类-->
 <template>
   <div>
     <!-- 面包屑导航区域 -->
@@ -60,7 +61,7 @@
         :current-page="queryInfo.pagenum"
         :page-sizes="[3, 5, 15, 30]"
         :page-size="queryInfo.pagesize"
-        layout="total, sizes, prev, pager, next, jumper"
+        layout="total, sizes, prev, pager, next, jumper" background
         :total="total">
       </el-pagination>
     </el-card>

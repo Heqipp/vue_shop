@@ -1,3 +1,4 @@
+<!--商品列表-->
 <template>
   <div>
     <!-- 面包屑导航区域 -->
@@ -9,7 +10,7 @@
 
     <!-- 卡片视图区域 -->
     <el-card>
-      <el-row :gutter="20">
+      <el-row :gutter="20" class="search">
         <el-col :span="8">
           <el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getGoodsList">
             <el-button slot="append" icon="el-icon-search" @click="getGoodsList"></el-button>
@@ -77,7 +78,7 @@ export default {
       }
 
       this.$message.success('获取商品列表成功！')
-      console.log(res.data)
+      //console.log(res.data)
       this.goodslist = res.data.goods
       this.total = res.data.total
     },
@@ -122,4 +123,9 @@ export default {
 </script>
 
 <style  scoped>
+
+.search{
+  margin-bottom: 15px;
+}
+
 </style>

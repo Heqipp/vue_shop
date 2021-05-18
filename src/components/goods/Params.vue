@@ -1,10 +1,11 @@
+<!--分类参数-->
 <template>
   <div>
     <!-- 面包屑导航区域 -->
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>商品管理</el-breadcrumb-item>
-      <el-breadcrumb-item>参数列表</el-breadcrumb-item>
+      <el-breadcrumb-item>分类参数</el-breadcrumb-item>
     </el-breadcrumb>
 
     <!-- 卡片视图区域 -->
@@ -27,7 +28,7 @@
         <!-- 添加动态参数的面板 -->
         <el-tab-pane label="动态参数" name="many">
           <!-- 添加参数的按钮 -->
-          <el-button type="primary" size="mini" :disabled="isBtnDisabled" @click="addDialogVisible=true">添加参数</el-button>
+          <el-button type="primary" size="mini" :disabled="isBtnDisabled" @click="addDialogVisible=true" >添加参数</el-button>
           <!-- 动态参数表格 -->
           <el-table :data="manyTableData" border stripe>
             <!-- 展开行 -->
@@ -56,7 +57,7 @@
         <!-- 添加静态属性的面板   -->
         <el-tab-pane label="静态属性" name="only">
           <!-- 添加属性的按钮 -->
-          <el-button type="primary" size="mini" :disabled="isBtnDisabled" @click="addDialogVisible=true">添加属性</el-button>
+          <el-button type="primary" size="mini" :disabled="isBtnDisabled" @click="addDialogVisible=true" >添加属性</el-button>
           <!-- 静态属性表格 -->
           <el-table :data="onlyTableData" border stripe>
             <!-- 展开行 -->
@@ -418,5 +419,8 @@ export default {
 
 .input-new-tag {
   width: 120px;
+}
+.el-button{
+  margin-bottom: 15px;
 }
 </style>
